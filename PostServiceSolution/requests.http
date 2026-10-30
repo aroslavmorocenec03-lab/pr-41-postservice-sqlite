@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:5050
+
+### 01. Створення без Price, Id і CreatedAt: 2 кг, Department -> 60 грн
+# @name createPosting
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{
+  "from": "Ivan",
+  "to": "Olena",
+  "content": "Documents",
+  "deliveryType": "Department",
+  "weight": 2,
+  "width": 20,
+  "height": 15,
+  "depth": 2,
+  "value": null,
+  "description": "Не згинати"
+}
+
+### 02. GET підтверджує збережену ціну
+GET {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+
+### 03. Те саме число кілограмів, Courier -> 110 грн
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{"from":"Ivan","to":"Olena","content":"Documents","deliveryType":"Courier","weight":2,"width":20,"height":15,"depth":2,"value":100}
+
+### 04. ExpressCourier -> 168 грн
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{"from":"Ivan","to":"Olena","content":"Documents","deliveryType":"ExpressCourier","weight":2,"width":20,"height":15,"depth":2,"value":100}
+
+### 05. Вихідні DTO містять Id, Price, CreatedAt
+GET {{baseUrl}}/postings
+
+### 06. Контракт редагування з Id та Price
+PUT {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+Content-Type: application/json
+
+{"id":{{createPosting.response.body.$.id}},"from":"Ivan","to":"Olena","content":"Documents (updated)","deliveryType":"Department","weight":2,"width":20,"height":15,"depth":2,"value":120,"price":60}
+
+### 07. Помилкова вага -> 400 з errors.Weight від сервісу
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{"from":"Ivan","to":"Olena","content":"Documents","deliveryType":"Department","weight":0,"width":20,"height":15,"depth":2,"value":100}
+
+### 08. Видалення -> 204
+DELETE {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+
+### 09. Видаленого запису більше немає -> 404
+GET {{baseUrl}}/postings/{{createPosting.response.body.$.id}}

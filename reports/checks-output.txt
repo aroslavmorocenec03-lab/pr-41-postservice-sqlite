@@ -1,0 +1,21 @@
+PASS: CreateDb створює таблицю; повторний виклик зберігає дані
+PASS: Create генерує Id, GetById повертає всі поля
+PASS: NULL Value/Description і всі DeliveryType проходять SQLite round-trip
+PASS: Параметри зберігають лапки, Unicode і SQL як звичайний текст
+PASS: Update змінює поля, підтримує NULL і зберігає CreatedAt
+PASS: GetList сортує за Id; Delete повертає 1, потім 0
+PASS: Відсутній запис: GetById=null, Update=0, Delete=0
+PASS: Новий екземпляр репозиторію читає той самий файл
+PASS: Сервіс використовує SQLite, обчислює тарифи й UTC; вхід не мутує
+PASS: Сервіс відхиляє некоректні дані до INSERT/UPDATE
+PASS: Сервіс оновлює і видаляє через репозиторій
+PASS: HTTP: автоматична міграція створила файл PostingDb.db
+PASS: HTTP POST: три записи, Id/Location, тарифи, дробові розміри та NULL
+PASS: Після зупинки процесу у файлі SQLite залишилося 3 записи
+PASS: Після перезапуску GET повертає ті самі Id і дані
+PASS: HTTP PUT/GET: зміни збережені, CreatedAt незмінний
+PASS: HTTP: некоректна вага повертає 400
+PASS: HTTP DELETE: 204 без тіла
+PASS: Видалення збережене після другого перезапуску; GET/DELETE=404
+
+Успішно: 19/19

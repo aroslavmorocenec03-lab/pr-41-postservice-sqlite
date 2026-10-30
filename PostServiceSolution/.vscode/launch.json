@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "PostService (build and debug)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/PostService/bin/Debug/net10.0/PostService.dll",
+      "cwd": "${workspaceFolder}/PostService",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "env": { "ASPNETCORE_ENVIRONMENT": "Development" }
+    },
+    {
+      "name": "PostService (already built)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/PostService/bin/Debug/net10.0/PostService.dll",
+      "cwd": "${workspaceFolder}/PostService",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "env": { "ASPNETCORE_ENVIRONMENT": "Development" }
+    }
+  ]
+}

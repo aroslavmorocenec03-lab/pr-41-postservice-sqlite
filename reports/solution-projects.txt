@@ -1,0 +1,8 @@
+Project(s)
+----------
+PostService.BusinessLogic\PostService.BusinessLogic.csproj
+PostService.CommonTypes\PostService.CommonTypes.csproj
+PostService.DataAccess\PostService.DataAccess.csproj
+PostService.Dtos\PostService.Dtos.csproj
+PostService.Models\PostService.Models.csproj
+PostService\PostService.csproj

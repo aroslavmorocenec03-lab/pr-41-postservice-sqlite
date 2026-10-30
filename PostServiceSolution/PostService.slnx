@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="PostService.BusinessLogic/PostService.BusinessLogic.csproj" />
+  <Project Path="PostService.CommonTypes/PostService.CommonTypes.csproj" />
+  <Project Path="PostService.DataAccess/PostService.DataAccess.csproj" />
+  <Project Path="PostService.Dtos/PostService.Dtos.csproj" />
+  <Project Path="PostService.Models/PostService.Models.csproj" />
+  <Project Path="PostService/PostService.csproj" />
+</Solution>
